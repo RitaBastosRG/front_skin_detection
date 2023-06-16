@@ -1,6 +1,10 @@
+##code to try to change the background
 import base64
 import streamlit as st
+import plotly.express as px
 
+with st.echo():
+    st.write('This code will be printed')
 @st.experimental_memo
 def get_img_as_base64(file):
     with open(file, "rb") as f:
@@ -13,7 +17,7 @@ img = get_img_as_base64("background.jpg")
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://images.app.goo.gl/Cm2PtU24WQv5dEi89");
+background-image: url(https://images.app.goo.gl/EmA51RExsJyJhWAW9);
 background-size: 180%;
 background-position: top left;
 background-repeat: no-repeat;
@@ -40,11 +44,3 @@ right: 2rem;
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.title("It's summer!")
 st.sidebar.header("Configuration")
-
-
-####### Disclaimer
-st.checkbox('I agree')
-
-
-if __name__ == '__main__':
-    main()
