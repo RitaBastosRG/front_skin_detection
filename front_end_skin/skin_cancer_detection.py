@@ -59,8 +59,9 @@ col2.image(image, use_column_width=True)
 st.subheader('Check your skin using our website and have the **prediction**.')
 
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
-check1 = st.checkbox("I consent to upload my image and agree to the **Privacy Policy**")
-check2 = st.checkbox("I understand that this is a prediction and all the results should be taken into account that they can be wrong")
+
+check1 = st.checkbox("I consent to the [Privacy Policy](https://google.com)")
+check2 = st.checkbox("I understand that the prediction can be wrong.")
 
 #if check1 and check2 == True:
 #    if st.button('Continue') == True:
