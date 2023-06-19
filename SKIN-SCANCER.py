@@ -26,7 +26,7 @@ col2.image(image, use_column_width=True)
 st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your skin using our website and have the prediction.</strong></p>""", unsafe_allow_html=True)
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
 st.session_state['check1'] = st.checkbox(
-    "I consent to the [Privacy Policy](https://skin-scancer.streamlit.app/Privacy_Policy)", value=st.session_state.get('check1', False))
+    "I have read and agree to the [Privacy Policy](https://skin-scancer.streamlit.app/Privacy_Policy)", value=st.session_state.get('check1', False))
 st.session_state['check2'] = st.checkbox(
     "I understand that the prediction can be wrong.", value=st.session_state.get('check2', False))
 if st.button('Continue'):
