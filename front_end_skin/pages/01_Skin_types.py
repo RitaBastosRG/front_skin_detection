@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 
+st.markdown("<h1 style='text-align: left; color:#BB9301;'>Prediction Related Informations 📗</h1>", unsafe_allow_html=True)
 ###################Page tab###################
 st.set_page_config(
     page_title = 'SKIN-SCANCER',

@@ -13,15 +13,15 @@ st.set_page_config(
     initial_sidebar_state="collapsed") # collapsed)
 
 # add gradient background
-page_bg_img = '''
-<style>
-.stApp {
-  background-image: url("https://images.unsplash.com/photo-1621799754526-a0d52c49fad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80");
-  background-size: cover;
-}
-</style>
-'''
-st.markdown(page_bg_img, unsafe_allow_html=True)
+# page_bg_img = '''
+# <style>
+# .stApp {
+#   background-image: url("https://images.unsplash.com/photo-1621799754526-a0d52c49fad5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80");
+#   background-size: cover;
+# }
+# </style>
+# '''
+# st.markdown(page_bg_img, unsafe_allow_html=True)
 
 ############# Config the title and picture#############
 #Custoum stylling
@@ -37,12 +37,12 @@ color: #824E1E;
 } </style> """, unsafe_allow_html=True)
 col1.markdown('<p class="font">🔎 Skinscancer 🔎</p>', unsafe_allow_html=True)
 #col1 picture
-image1 = Image.open('assets/abcde.jpg')
+image1 = Image.open('assets/abcde-removebg-preview.png')
 col1.image(image1, use_column_width=True)
 
 
 #column 2 picture
-image = Image.open('assets/Inspection_logo.jpg')
+image = Image.open('assets/Inspection_logo-removebg.png')
 col2.image(image, use_column_width=True)
 ## trying to change the style of next subheader
 #st.markdown(""" <style> .font {
