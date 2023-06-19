@@ -24,44 +24,51 @@ image = Image.open('assets/Inspection_logo-removebg.png')
 col2.image(image, use_column_width=True)
 st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your skin using our website and have the prediction.</strong></p>""", unsafe_allow_html=True)
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
+st.session_state['check1'] = st.checkbox("I consent to the [Privacy Policy](https://google.com)", value=st.session_state.get('check1', False))
+st.session_state['check2'] = st.checkbox("I understand that the prediction can be wrong.", value=st.session_state.get('check2', False))
+if st.button('Continue'):
+    st.session_state['continue'] = True
 
-check1 = st.checkbox("I consent to the [Privacy Policy](https://google.com)")
-check2 = st.checkbox("I understand that the prediction can be wrong.")
 
-if check1 and check2 == True:
-    if st.button('Continue') == True:
+if st.session_state.get('check1', False) and st.session_state.get('check2', False) and st.session_state.get('continue', False):
     ########################Loading Image related#########
         st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Upload your image</strong></p>""", unsafe_allow_html=True)
         uploaded_file = st.file_uploader(label='Pick an image to test')
+        # st.session_state['uploaded_file'] = uploaded_file
         if uploaded_file is not None:
+
             image_data = uploaded_file.getvalue()
             st.image(image_data)
-            #############api#######################
+            st.write('Processing...⚙️')
+            ############api#######################
             skin_detection_api_url = 'https://skin-detection-hsuizqzdtq-ew.a.run.app/upload-image'
             files = {'file': BytesIO(image_data)}
             response = requests.post(skin_detection_api_url, files=files)
-            'Starting a long computation...'
+
             # Add a placeholder
             latest_iteration = st.empty()
             bar = st.progress(0)
-            for i in range(150):
+            for i in range(100):
             # Update the progress bar with each iteration.
-                latest_iteration.text(f'Trying to make a prediction {i+1}')
+                latest_iteration.markdown(f'<p>Trying to make a prediction {i+1}/100</P>', unsafe_allow_html=True)
                 bar.progress(i + 1)
                 time.sleep(0.1)
-            '...and now we\'re done!'
+            st.write('Computation is done 🎉')
             prediction = response.json()
             pred = prediction['possibility']
-            st.header(f'The probability of being malignant is ({pred})%')
+            st.header(f'The probability of being malignant is {round(pred*100,2)}%')
+
+
 #########################Side bar################
 st.sidebar.header("This project was made by:")
 image_size = 50
 
 CREATORS = {
-    'Haitao' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322545/jooigdwuvxezp0hwguh1.jpg',
-    'Ines' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322613/rpdiddalk7eqoeobfawr.jpg',
-    'Yui' : 'https://avatars.githubusercontent.com/u/99614473?v=4',
     'Rita' : 'https://avatars.githubusercontent.com/u/130187615?v=4',
+    'Haitao' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322545/jooigdwuvxezp0hwguh1.jpg',
+    'Yui' : 'https://avatars.githubusercontent.com/u/99614473?v=4',
+    'Ines' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322613/rpdiddalk7eqoeobfawr.jpg',
+
 }
 
 CREATORS_CSS = f"""
