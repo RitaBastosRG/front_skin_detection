@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-st.header("Prediction Related Informations")
+st.markdown("<h1 style='text-align: left; color:#BB9301;'>Prediction Related Informations 📗</h1>", unsafe_allow_html=True)
 choice = st.radio("**Search between different types of skin lesions**", ['Nevus', 'Basal Carcinoma', 'Other'])
 if choice == "Basal Carcinoma":
     with st.expander("Click to read more"):
