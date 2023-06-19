@@ -1,6 +1,13 @@
 import streamlit as st
 from PIL import Image
 
+###################Page tab###################
+st.set_page_config(
+    page_title = 'SKIN-SCANCER',
+    page_icon = '🔎',
+    layout="centered", # wide
+    initial_sidebar_state="collapsed") # collapsed)
+
 st.header("Prediction Related Informations")
 choice = st.radio("**Search between different types of skin lesions**", ['Nevus', 'Basal Carcinoma', 'Other'])
 if choice == "Basal Carcinoma":
