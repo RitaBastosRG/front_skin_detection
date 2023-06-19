@@ -20,7 +20,6 @@ def main():
 #st.progress(progress_variable_1_to_100)
 
 
-
 ###########Display progress and status
 progress_bar = col2.progress(0)
 for perc_completed in range(100):
