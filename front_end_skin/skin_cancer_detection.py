@@ -39,7 +39,7 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
 
             image_data = uploaded_file.getvalue()
             st.image(image_data)
-            st.write('⚙️ Processing...⚙️')
+            st.write('Processing...⚙️')
             ############api#######################
             skin_detection_api_url = 'https://skin-detection-hsuizqzdtq-ew.a.run.app/upload-image'
             files = {'file': BytesIO(image_data)}
@@ -50,10 +50,10 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
             bar = st.progress(0)
             for i in range(100):
             # Update the progress bar with each iteration.
-                latest_iteration.text(f'Trying to make a prediction {i+1}%')
+                latest_iteration.markdown(f'<p>Trying to make a prediction {i+1}/100</P>', unsafe_allow_html=True)
                 bar.progress(i + 1)
                 time.sleep(0.1)
-            '...and now we\'re done!'
+            st.write('Computation is done 🎉')
             prediction = response.json()
             pred = prediction['possibility']
             st.header(f'The probability of being malignant is {round(pred*100,2)}%')
@@ -64,10 +64,11 @@ st.sidebar.header("This project was made by:")
 image_size = 50
 
 CREATORS = {
-    'Haitao' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322545/jooigdwuvxezp0hwguh1.jpg',
-    'Ines' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322613/rpdiddalk7eqoeobfawr.jpg',
-    'Yui' : 'https://avatars.githubusercontent.com/u/99614473?v=4',
     'Rita' : 'https://avatars.githubusercontent.com/u/130187615?v=4',
+    'Haitao' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322545/jooigdwuvxezp0hwguh1.jpg',
+    'Yui' : 'https://avatars.githubusercontent.com/u/99614473?v=4',
+    'Ines' : 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682322613/rpdiddalk7eqoeobfawr.jpg',
+
 }
 
 CREATORS_CSS = f"""
