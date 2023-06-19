@@ -17,10 +17,10 @@ st.set_page_config(
 col1, col2 = st.columns(2)
 col1.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""", unsafe_allow_html=True)
 #col1 picture
-image1 = Image.open('assets/abcde.jpg')
+image1 = Image.open('assets/abcde-removebg-preview.png')
 col1.image(image1, use_column_width=True)
 #column 2 picture
-image = Image.open('assets/Inspection_logo.jpg')
+image = Image.open('assets/Inspection_logo-removebg.png')
 col2.image(image, use_column_width=True)
 st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your skin using our website and have the prediction.</strong></p>""", unsafe_allow_html=True)
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
