@@ -26,7 +26,7 @@ col2.image(image, use_column_width=True)
 st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your skin using our website and have the prediction.</strong></p>""", unsafe_allow_html=True)
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
 st.session_state['check1'] = st.checkbox(
-    "I have read and agree to the [Privacy Policy](https://skin-scancer.streamlit.app/Privacy_Policy)", value=st.session_state.get('check1', False))
+    "I have read and agree to the [Privacy Policy](https://skin-scancer.streamlit.app/Privacy_Policy).", value=st.session_state.get('check1', False))
 st.session_state['check2'] = st.checkbox(
     "I understand that the prediction can be wrong.", value=st.session_state.get('check2', False))
 if st.button('Continue'):
@@ -43,7 +43,7 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
 
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-        st.write('Processing...⚙️')
+        st.write('Processing...🔎')
         ############api#######################
         skin_detection_api_url = 'https://skin-detection-hsuizqzdtq-ew.a.run.app/upload-image'
         files = {'file': BytesIO(image_data)}
@@ -55,7 +55,7 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
         for i in range(100):
             # Update the progress bar with each iteration.
             latest_iteration.markdown(
-                f'<p>Predicting...⚙️ {i+1}/100</P>', unsafe_allow_html=True)
+                f'<p>Predicting...🔎 {i+1}/100</P>', unsafe_allow_html=True)
             bar.progress(i + 1)
             time.sleep(0.1)
         prediction = response.json()
