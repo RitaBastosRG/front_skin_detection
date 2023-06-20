@@ -15,7 +15,7 @@ st.set_page_config(
 ############# Config the title and picture#############
 # Custoum stylling
 col1, col2 = st.columns(2)
-col1.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
+col1.markdown(f"""<p style="color:#BB9301;font-size:40px;text-align:center"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
               unsafe_allow_html=True)
 # col1 picture
 image1 = Image.open('assets/abcde-removebg-preview.png')
@@ -55,14 +55,14 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
         for i in range(100):
             # Update the progress bar with each iteration.
             latest_iteration.markdown(
-                f'<p>Trying to make a prediction {i+1}/100</P>', unsafe_allow_html=True)
+                f'<p>Predicting...⚙️ {i+1}/100</P>', unsafe_allow_html=True)
             bar.progress(i + 1)
             time.sleep(0.1)
-        st.write('Computation is done 🎉')
         prediction = response.json()
         pred = prediction['possibility']
-        st.header(
-            f'The probability of being malignant is {round(pred*100,2)}%')
+        st.markdown(f'<p style="color:#BB9301;font-size:30px">There is {round(pred*100,2)}% probability that your mole is cancerous.</p>',unsafe_allow_html=True)
+        st.markdown('For more information about skin cancers and moles, click [here](https://skin-scancer.streamlit.app/Skin_types)')
+
 
 
 #########################Side bar################
