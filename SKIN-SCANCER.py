@@ -13,9 +13,9 @@ st.set_page_config(
     initial_sidebar_state="collapsed")  # collapsed)
 
 ############# Config the title and picture#############
-st.markdown(f"""<p style="color:#BB9301;font-size:40px;text-align:center"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
+st.markdown(f"""<p style="color:#BB9301;font-size:50px;text-align:center"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
               unsafe_allow_html=True)
-st.markdown(f"""<p style="color:#BB9301;font-size:30px;text-align:center"><strong>Check your mole and have the prediction.</strong></p>""", unsafe_allow_html=True)
+st.markdown(f"""<p style="color:#BB9301;font-size:30px;text-align:center"><strong>Is your mole cancerous? Find the probability.</strong></p>""", unsafe_allow_html=True)
 # Custoum stylling
 col1, col2 = st.columns(2)
 # col1 picture
@@ -60,11 +60,98 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
             time.sleep(0.03)
         prediction = response.json()
         pred = prediction['possibility']
-        st.markdown(f'<p style="color:#634E01;font-size:20px">There is <span class="bold red"><strong>{round(pred*100,2)}%</strong><span class="bold red"> probability that your mole is cancerous.</p>',unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#634E01;font-size:30px">There is <span style="color:red; font-weight: bold;"><strong>{round(pred*100,2)}%</strong></span> probability that your mole is cancerous.</p>',unsafe_allow_html=True)
 
         if pred*100>50:
-            st.markdown('<p style="color:#634E01;font-size:17px">Your mole might be one of the following cancers:<br> Actinic Keratosis (AK), Squamous Cell Carcinoma (SCC), Basal Cell Carcinoma (BCC).</p>',unsafe_allow_html=True)
-            st.markdown('<p style="color:#634E01;font-size:17px">It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
+            expander = st.expander("Learn more")
+            expander.markdown('<p style="color:#634E01;font-size:17px">Your mole might be one of the following cancers:<br> Actinic Keratosis (AK), Squamous Cell Carcinoma (SCC), Basal Cell Carcinoma (BCC).</p>',unsafe_allow_html=True)
+            expander.markdown('<p style="color:#634E01;font-size:17px">It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
+            expander.markdown('''<html>
+                              <style>
+                                .header {
+                                text-align: center;
+                                padding: 32px;
+                                }
+                                .column {
+                                float: left;
+                                width: 33%;
+                                padding: 10px;
+                                }
+                                .column img {
+                                margin-top: 12px;
+                                }
+                                .row:after {
+                                content: "";
+                                display: table;
+                                clear: both;
+                                }
+                                </style>
+                                <body>
+                                <div class="row">
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">AK</p>
+                                <img src="https://i.ibb.co/KDBk3gS/ISIC-0024800-180.jpg" style="width:100%">
+                                </div>
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">SCC</p>
+                                <img src="https://i.ibb.co/0hsswyY/ISIC-0024372-90.jpg" style="width:100%">
+                                </div>
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">BCC</p>
+                                <img src="https://i.ibb.co/rvx8zKV/ISIC-0028122.jpg" style="width:100%">
+                                </div>
+                                </div>
+                                </body>
+                                </html>
+                                ''' ,unsafe_allow_html=True)
+
+        else:
+            expander = st.expander("Learn more")
+            expander.markdown('<p style="color:#634E01;font-size:17px">Your mole might be one of the following benign moles:<br> Melanocytic nevus (NV), Benign keratosis (BKL), Dermatofibroma (DF), Vascular lesion(VASC).</p>',unsafe_allow_html=True)
+            expander.markdown('<p style="color:#634E01;font-size:17px">It is likely that your mole is harmless, but keep an eye on how it develops over time. If it grows larger, it is strongly recommended to consult a dermatologist. </p>',unsafe_allow_html=True)
+            expander.markdown('<p style="color:#634E01;font-size:17px">Kinds of benign moles:</p>',unsafe_allow_html=True)
+            expander.markdown('''<html>
+                              <style>
+                                .header {
+                                text-align: center;
+                                padding: 32px;
+                                }
+                                .column {
+                                float: left;
+                                width: 25%;
+                                padding: 10px;
+                                }
+                                .column img {
+                                margin-top: 12px;
+                                }
+                                .row:after {
+                                content: "";
+                                display: table;
+                                clear: both;
+                                }
+                                </style>
+                                <body>
+                                <div class="row">
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">NV</p>
+                                <img src="https://i.ibb.co/yymG6fk/ISIC-0000001.jpg" style="width:100%">
+                                </div>
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">BKL</p>
+                                <img src="https://i.ibb.co/fSWnLbj/ISIC-0012998.jpg" style="width:100%">
+                                </div>
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">DF</p>
+                                <img src="https://i.ibb.co/1ZpD2dR/ISIC-0069303.jpg" style="width:100%">
+                                </div>
+                                <div class="column">
+                                <p style="color:#634E01;text-align:center">VASC</p>
+                                <img src="https://i.ibb.co/0t3zZ26/ISIC-0025628.jpg" style="width:100%">
+                                </div>
+                                </div>
+                                </body>
+                                </html>
+                                ''' ,unsafe_allow_html=True)
         st.markdown('For more information about skin cancers and moles, click [here](https://skin-scancer.streamlit.app/Skin_Cancer_Information)')
 
 

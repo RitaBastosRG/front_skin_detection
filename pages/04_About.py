@@ -3,6 +3,7 @@ from PIL import Image
 
 
 
+
 st.markdown("<h1 style='text-align: center; color:#BB9301;'>About SKIN-SCANCER 🔎</h1>", unsafe_allow_html=True)
 img = Image.open('assets/Inspection_logo-removebg.png').resize((280, 256))
 col1, col2, col3 = st.columns(3)
@@ -38,11 +39,19 @@ st.markdown("<h2 style='text-align: left; color:#BB9301;'>GitHub link:</h2>", un
 st.markdown("<br>",unsafe_allow_html=True)
 
 st.markdown('''
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <title>Font Awesome Icons</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            </head>
+            <body>
             <h2 style='text-align: left; color:#BB9301;'>Team Members:</h2>
-            <ul stype='font-size:5;'>
-            <li><a [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&labe (https://github.com/RitaBastosRG)>Rita Bastos</a></li>
-            <li><a href='https://github.com/HelloSunPKU2023'>Haitao Sun</a></li>
-            <li><a href='https://github.com/yt50'>Yui Takeuchi-Schöpe</a></li>
-            <li><a href='https://github.com/InesBelhadjSoulami'>Ines Bel Hadj Soulami</a></li>
-            </ul>
-            ''', unsafe_allow_html=True)
+                        <ul stype='font-size:5;'>
+                        <li><a href = 'https://github.com/RitaBastosRG')><button style="font-size:24px"><i class="fa fa-github"></i> Rita Bastos</button></a> <a href = 'https://www.linkedin.com/in/rita-bastos-rg/')><button style="font-size:24px"><i class="fa fa-linkedin" style="color:#0077B5"></i> Rita Bastos</button></a></li>
+                        <li><a href = 'https://github.com/HelloSunPKU2023')><button style="font-size:24px"><i class="fa fa-github"></i> Haitao Sun</button></a> </li>
+                        <li><a href = 'https://github.com/yt50')><button style="font-size:24px"><i class="fa fa-github"></i> Yui Takeuchi-Schöpe</button></a> <a href = 'https://www.linkedin.com/in/yui-takeuchi-sch%C3%B6pe/')><button style="font-size:24px"><i class="fa fa-linkedin" style="color:#0077B5"></i> Yui Takeuchi-Schöpe</button></a></li>
+                        <li><a href = 'https://github.com/InesBelhadjSoulami')><button style="font-size:24px"><i class="fa fa-github"></i> Ines Bel Hadj Soulami</button></a> </li>
+                        </ul>
+                        ''', unsafe_allow_html=True)
