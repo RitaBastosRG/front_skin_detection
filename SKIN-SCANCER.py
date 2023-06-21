@@ -60,9 +60,11 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
             time.sleep(0.1)
         prediction = response.json()
         pred = prediction['possibility']
-        st.markdown(f'<p style="color:#BB9301;font-size:30px">There is {round(pred*100,2)}% probability that your mole falls into one of the three cancer categories (AK, SCC, BCC).<br> It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
-        st.markdown('For more information about skin cancers and moles, click [here](https://skin-scancer.streamlit.app/Skin_Cancer_Information)')
+        st.markdown(f'<p style="color:#BB9301;font-size:20px">There is {round(pred*100,2)}% probability that your mole falls into one of the three cancer categories (AK, SCC, BCC).</p>',unsafe_allow_html=True)
 
+        if pred*100>50:
+            st.markdown('<p style="color:#BB9301;font-size:20px">It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
+        st.markdown('For more information about skin cancers and moles, click [here](https://skin-scancer.streamlit.app/Skin_Cancer_Information)')
 
 
 #########################Side bar################
