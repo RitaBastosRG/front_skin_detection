@@ -15,6 +15,7 @@ st.set_page_config(
 ############# Config the title and picture#############
 st.markdown(f"""<p style="color:#BB9301;font-size:40px;text-align:center"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
               unsafe_allow_html=True)
+st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your mole and have the prediction.</strong></p>""", unsafe_allow_html=True)
 # Custoum stylling
 col1, col2 = st.columns(2)
 # col1 picture
@@ -23,7 +24,7 @@ col1.image(image1, use_column_width=True)
 # column 2 picture
 image = Image.open('assets/Inspection_logo-removebg.png').resize((280, 256))
 col2.image(image, use_column_width=True)
-st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your skin using our website and have the prediction.</strong></p>""", unsafe_allow_html=True)
+
 ################# DISCLAIMER ONLY CONTINUES IF THIS BOX IS CHECKED #################
 st.session_state['check1'] = st.checkbox(
     "I have read and agree to the [Privacy Policy](https://skin-scancer.streamlit.app/Privacy_Policy).", value=st.session_state.get('check1', False))
@@ -43,7 +44,6 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
 
         image_data = uploaded_file.getvalue()
         st.image(image_data)
-        st.write('Processing...🔎')
         ############api#######################
         skin_detection_api_url = 'https://skin-detection-hsuizqzdtq-ew.a.run.app/upload-image'
         files = {'file': BytesIO(image_data)}
@@ -57,13 +57,14 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
             latest_iteration.markdown(
                 f'<p>Predicting...🔎 {i+1}/100</P>', unsafe_allow_html=True)
             bar.progress(i + 1)
-            time.sleep(0.1)
+            time.sleep(0.03)
         prediction = response.json()
         pred = prediction['possibility']
-        st.markdown(f'<p style="color:#BB9301;font-size:20px">There is {round(pred*100,2)}% probability that your mole falls into one of the three cancer categories (AK, SCC, BCC).</p>',unsafe_allow_html=True)
+        st.markdown(f'<p style="color:#634E01;font-size:20px">There is <span class="bold red"><strong>{round(pred*100,2)}%</strong><span class="bold red"> probability that your mole is cancerous.</p>',unsafe_allow_html=True)
 
         if pred*100>50:
-            st.markdown('<p style="color:#BB9301;font-size:17px">It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
+            st.markdown('<p style="color:#634E01;font-size:17px">Your mole might be one of the following cancers:<br> Actinic Keratosis (AK), Squamous Cell Carcinoma (SCC), Basal Cell Carcinoma (BCC).</p>',unsafe_allow_html=True)
+            st.markdown('<p style="color:#634E01;font-size:17px">It is strongly recommended to consult a dermatologist for further evaluation and advice.</p>',unsafe_allow_html=True)
         st.markdown('For more information about skin cancers and moles, click [here](https://skin-scancer.streamlit.app/Skin_Cancer_Information)')
 
 
