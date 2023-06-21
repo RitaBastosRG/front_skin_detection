@@ -15,7 +15,7 @@ st.set_page_config(
 ############# Config the title and picture#############
 st.markdown(f"""<p style="color:#BB9301;font-size:40px;text-align:center"><strong>🔎 SKIN-SCANCER 🔎</strong></p>""",
               unsafe_allow_html=True)
-st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Check your mole and have the prediction.</strong></p>""", unsafe_allow_html=True)
+st.markdown(f"""<p style="color:#BB9301;font-size:30px;text-align:center"><strong>Check your mole and have the prediction.</strong></p>""", unsafe_allow_html=True)
 # Custoum stylling
 col1, col2 = st.columns(2)
 # col1 picture
