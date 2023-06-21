@@ -27,18 +27,22 @@ The goal of the application is to raise awareness of skin cancer and to guide us
 
 st.markdown(about, unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: left; color:#BB9301;'>GitHub links:</h2>", unsafe_allow_html=True)
-st.markdown(f"https://github.com/RitaBastosRG/skin_detection_1271 <br> https://github.com/RitaBastosRG/front_skin_detection"
-, unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; color:#BB9301;'>GitHub link:</h2>", unsafe_allow_html=True)
+#st.markdown(f"https://github.com/RitaBastosRG/skin_detection_1271 <br> https://github.com/RitaBastosRG/front_skin_detection"
+#, unsafe_allow_html=True)
+# Add Link to your repo
+'''
+    [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/RitaBastosRG/skin_detection_1271)
+
+'''
+st.markdown("<br>",unsafe_allow_html=True)
 
 st.markdown('''
             <h2 style='text-align: left; color:#BB9301;'>Team Members:</h2>
             <ul stype='font-size:5;'>
-            <li><a href='https://github.com/RitaBastosRG'>Rita Bastos</a></li>
+            <li><a [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&labe (https://github.com/RitaBastosRG)>Rita Bastos</a></li>
             <li><a href='https://github.com/HelloSunPKU2023'>Haitao Sun</a></li>
             <li><a href='https://github.com/yt50'>Yui Takeuchi-Schöpe</a></li>
             <li><a href='https://github.com/InesBelhadjSoulami'>Ines Bel Hadj Soulami</a></li>
             </ul>
-            ''',
-
-            unsafe_allow_html=True)
+            ''', unsafe_allow_html=True)
