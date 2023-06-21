@@ -37,7 +37,7 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
     ########################Loading Image related#########
     st.markdown(f"""<p style="color:#BB9301;font-size:30px"><strong>Upload your image</strong></p>""",
                 unsafe_allow_html=True)
-    uploaded_file = st.file_uploader(label='Pick an image to test',type=['png','jpg','jpeg'])
+    uploaded_file = st.file_uploader(label='Pick an image to test',type=['png','jpg','jpeg'], label_visibility='hidden')
     # st.session_state['uploaded_file'] = uploaded_file
     if uploaded_file is not None:
 
