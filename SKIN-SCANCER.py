@@ -109,7 +109,6 @@ if st.session_state.get('check1', False) and st.session_state.get('check2', Fals
             expander = st.expander("Learn more")
             expander.markdown('<p style="color:#634E01;font-size:17px">Your mole might be one of the following benign moles:<br> Melanocytic nevus (NV), Benign keratosis (BKL), Dermatofibroma (DF), Vascular lesion(VASC).</p>',unsafe_allow_html=True)
             expander.markdown('<p style="color:#634E01;font-size:17px">It is likely that your mole is harmless, but keep an eye on how it develops over time. If it grows larger, it is strongly recommended to consult a dermatologist. </p>',unsafe_allow_html=True)
-            expander.markdown('<p style="color:#634E01;font-size:17px">Kinds of benign moles:</p>',unsafe_allow_html=True)
             expander.markdown('''<html>
                               <style>
                                 .header {
