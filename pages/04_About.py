@@ -41,6 +41,22 @@ st.markdown("<br>",unsafe_allow_html=True)
 st.markdown('''
             <!DOCTYPE html>
             <html>
+            <style>
+            .button {
+            border: none;
+            color: black;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+            .button3 {border-radius: 8px;}
+
+            </style>
             <head>
             <title>Font Awesome Icons</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,9 +65,9 @@ st.markdown('''
             <body>
             <h2 style='text-align: left; color:#BB9301;'>Team Members:</h2>
                         <ul stype='font-size:5;'>
-                        <li><a href = 'https://github.com/RitaBastosRG')><button style="font-size:24px"><i class="fa fa-github"></i> Rita Bastos</button></a> <a href = 'https://www.linkedin.com/in/rita-bastos-rg/')><button style="font-size:24px"><i class="fa fa-linkedin" style="color:#0077B5"></i> Rita Bastos</button></a></li>
-                        <li><a href = 'https://github.com/HelloSunPKU2023')><button style="font-size:24px"><i class="fa fa-github"></i> Haitao Sun</button></a> </li>
-                        <li><a href = 'https://github.com/yt50')><button style="font-size:24px"><i class="fa fa-github"></i> Yui Takeuchi-Schöpe</button></a> <a href = 'https://www.linkedin.com/in/yui-takeuchi-sch%C3%B6pe/')><button style="font-size:24px"><i class="fa fa-linkedin" style="color:#0077B5"></i> Yui Takeuchi-Schöpe</button></a></li>
-                        <li><a href = 'https://github.com/InesBelhadjSoulami')><button style="font-size:24px"><i class="fa fa-github"></i> Ines Bel Hadj Soulami</button></a> </li>
+                        <li><a href = 'https://github.com/RitaBastosRG')><button style="font-size:18px" class= "button button3"><i class="fa fa-github"></i> Rita Bastos</button></a> <a href = 'https://www.linkedin.com/in/rita-bastos-rg/')><button style="font-size:18px" class= "button button3"><i class="fa fa-linkedin" style="color:#0077B5"></i> Rita Bastos</button></a></li>
+                        <li><a href = 'https://github.com/HelloSunPKU2023')><button style="font-size:18px" class= "button button3"><i class="fa fa-github"></i> Haitao Sun</button></a> </li>
+                        <li><a href = 'https://github.com/yt50')><button style="font-size:18px" class= "button button3"><i class="fa fa-github" ></i> Yui Takeuchi-Schöpe</button></a> <a href = 'https://www.linkedin.com/in/yui-takeuchi-sch%C3%B6pe/')><button style="font-size:18px" class= "button button3"><i class="fa fa-linkedin" style="color:#0077B5"></i> Yui Takeuchi-Schöpe</button></a></li>
+                        <li><a href = 'https://github.com/InesBelhadjSoulami')><button style="font-size:18px" class= "button button3"><i class="fa fa-github"></i> Ines Bel Hadj Soulami</button></a> <a href = 'https://www.linkedin.com/in/in%C3%A8s-bel-hadj-soulami-361b77195')><button style="font-size:18px" class= "button button3"><i class="fa fa-linkedin" style="color:#0077B5"></i>  Ines Bel Hadj Soulami</button></a></li>
                         </ul>
                         ''', unsafe_allow_html=True)
